@@ -18,3 +18,6 @@ dati2=subset(dati,select = c('WAGE','EDUC','AGE','FEMALE'))
 write_sas(dati2,'prova.sas7bdat')
 
 ## MATLAB
+# carico pacchetto 
+library(haven)
+
