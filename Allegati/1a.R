@@ -18,6 +18,26 @@ dati2=subset(dati,select = c('WAGE','EDUC','AGE','FEMALE'))
 write_sas(dati2,'prova.sas7bdat')
 
 ## MATLAB
-# carico pacchetto 
-library(haven)
+# installo il pacchetto haven se ne ho bisogno 
+install.packages('R.matlab',dep=T)
+# carico pacchetto e setting della working directory 
+library(R.matlab)
+# carico i dati
+dati=readMat('https://github.com/manuelcaccone/CORSO-SIA----Basic-of-R-for-actuaries/blob/main/Allegati/Dati/acetylene.mat?raw=true')
+# osservo natura dei dati
+str(dati)
+x1=dati$x1
+x2=dati$x2
+plot(x1,x2)
+# scrivo in formato .mat
+writeMat('Prova.mat',x1=x1,x2=x2)
+
+
+## Python 
+# installo il pacchetto haven se ne ho bisogno 
+install.packages('reticulate',dep=T)
+# carico pacchetto e setting della working directory 
+library(reticulate)
+reticulate::
+
 
