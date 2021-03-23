@@ -1,0 +1,5 @@
+library(RODBC)
+setwd(readClipboard())
+myChannell<- odbcConnectAccess2007("Database.accdb")
+claimsDb<-sqlQuery(myChannell, "select * from Claims")
+policiesDb<-sqlQuery(myChannell, "select * from Policies")
