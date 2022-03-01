@@ -2,14 +2,18 @@
 
 ## SAS
 # installo il pacchetto haven se ne ho bisogno 
-install.packages('haven',dep=T)
+install.packages('haven',dep=TRUE)
 
 # leggere file, modificarli e tradurli in formato .sas7bdat
 # carico pacchetto e setting della working directory 
 library(haven)
 setwd("C:\\Users\\UGA05153\\Desktop\\CORSO SIA - Basics of R for Actuaries")
+setwd(readClipboard())
 # carico i dati
+
 dati=read_sas('https://github.com/manuelcaccone/CORSO-SIA----Basic-of-R-for-actuaries/blob/3a8543f2b255db31f087c4cc5165052435e8aef5/Allegati/Dati/cps.sas7bdat?raw=true')
+dati=read_sas(file.choose())
+dati=read_sas('C:\\Users\\UGA05153\\Desktop\\cps.sas7bdat')
 # faccio una summary 
 summary(dati)
 # estraggo solo delle variabili
@@ -65,10 +69,10 @@ setwd("C:\\Users\\UGA05153\\Desktop\\CORSO SIA - Basics of R for Actuaries")
 # creo un foglio Excel 
 wb <- createWorkbook()
 ## aggiungo attributi 
-wb <- createWorkbook(creator = "Me"
-                     , title = "title here"
-                     , subject = "this & that"
-                     , category = "something")
+wb <- createWorkbook(creator = "Manuel"
+                     , title = "Prova SIA"
+                     , subject = "Ciao Mondo"
+                     , category = "Actuary")
 
 # creo un modello di regressione
 mod=lm(mtcars)
