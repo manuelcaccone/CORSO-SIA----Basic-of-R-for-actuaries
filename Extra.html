@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistenti AI in RStudio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            margin-top: 25px;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+        }
+        code {
+            background-color: #f7f7f7;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        ul {
+            padding-left: 25px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .resource-link {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        .resource-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Introduzione</h1>
+    <ul>
+        <li>L'integrazione di strumenti AI negli ambienti di sviluppo sta trasformando il lavoro di data scientist</li>
+        <li>RStudio si sta adattando integrando vari assistenti AI:
+            <ul>
+                <li>GitHub Copilot</li>
+                <li>groqR</li>
+                <li>gander</li>
+            </ul>
+        </li>
+        <li>Vantaggi: produttività, riduzione errori, accessibilità</li>
+    </ul>
+
+    <h1>GitHub Copilot</h1>
+    
+    <h2>Cos'è GitHub Copilot?</h2>
+    <ul>
+        <li>Assistente AI sviluppato da GitHub e OpenAI</li>
+        <li>Basato su modelli linguistici avanzati (GPT-4)</li>
+        <li>Funzionalità:
+            <ul>
+                <li>Suggerimento di codice</li>
+                <li>Completamento funzioni</li>
+                <li>Documentazione automatica</li>
+                <li>Generazione script</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Integrazione con RStudio</h2>
+    <ul>
+        <li>Nativa in RStudio Desktop (versione 2023.09.0+)</li>
+        <li>Disponibile su Posit Workbench/RStudio Server</li>
+    </ul>
+
+    <h2>Requisiti</h2>
+    <ul>
+        <li>Account GitHub con abbonamento Copilot attivo
+            <ul>
+                <li>Gratuito per studenti/docenti</li>
+            </ul>
+        </li>
+        <li>RStudio Desktop aggiornato</li>
+        <li>Connessione internet</li>
+    </ul>
+
+    <h2>Installazione e Configurazione</h2>
+    <ol>
+        <li>Apri RStudio → Tools → Global Options → Copilot</li>
+        <li>Abilita "Enable GitHub Copilot"</li>
+        <li>Scarica componenti aggiuntivi</li>
+        <li>Accedi con account GitHub</li>
+    </ol>
+    <p>Per RStudio Server/Workbench: aggiungi <code>copilot-enabled=1</code> in <code>/etc/rstudio/rsession.conf</code></p>
+
+    <h2>Funzionalità</h2>
+    <ul>
+        <li>Completamento automatico di codice e funzioni</li>
+        <li>Suggerimenti contestuali</li>
+        <li>Supporto multilingua: R, Python, SQL, HTML, CSS, JavaScript</li>
+        <li>Documentazione automatica</li>
+        <li>Adattamento allo stile di programmazione</li>
+    </ul>
+
+    <h2>Esempio pratico</h2>
+    <pre><code># Calcola la media di una colonna in un dataframe</code></pre>
+    <p>Copilot suggerirà automaticamente il codice R corrispondente.</p>
+
+    <h2>Vantaggi e Limiti</h2>
+    <p><strong>Vantaggi:</strong></p>
+    <ul>
+        <li>Riduce errori di sintassi e logica</li>
+        <li>Aumenta la produttività</li>
+        <li>Utile per tutti i livelli di esperienza</li>
+    </ul>
+    <p><strong>Limiti:</strong></p>
+    <ul>
+        <li>Richiede abbonamento</li>
+        <li>Necessita connessione internet</li>
+        <li>Non sempre perfetto su codice personalizzato</li>
+    </ul>
+
+    <h1>groqR</h1>
+    
+    <h2>Cos'è groqR?</h2>
+    <ul>
+        <li>Pacchetto R per integrare modelli AI di Groq</li>
+        <li>Supporta DeepSeek-R1, Llama-3, Mixtral e altri</li>
+        <li>Noto per velocità e ottimizzazione hardware</li>
+    </ul>
+
+    <h2>Caratteristiche chiave</h2>
+    <ul>
+        <li>Inferenza ultra-veloce (fino a 10x rispetto a GPU tradizionali)</li>
+        <li>Supporto multi-modello</li>
+        <li>Privacy di livello enterprise</li>
+        <li>Piano gratuito disponibile</li>
+        <li>Add-in per RStudio</li>
+    </ul>
+
+    <h2>Installazione</h2>
+    <ol>
+        <li>Crea account su <a href="https://groq.com/" class="resource-link">Groq</a></li>
+        <li>Ottieni API Key dalla dashboard</li>
+        <li>In R:</li>
+    </ol>
+    <pre><code>install.packages("groqR")
+library(groqR)
+groq_set_api_key("TUACHIAVEAPI")</code></pre>
+    <ol start="4">
+        <li>Avvia l'add-in di groqR in RStudio</li>
+    </ol>
+
+    <h2>Funzionalità</h2>
+    <ul>
+        <li>Chat AI per domande su codice, debug</li>
+        <li>Traduzione codice tra linguaggi</li>
+        <li>Generazione automatica di test e documentazione</li>
+        <li>Suggerimenti per nomi di variabili/funzioni</li>
+        <li>Analisi e sintesi di dati</li>
+    </ul>
+
+    <h2>Esempio pratico</h2>
+    <pre><code>groq_chat("Scrivi una funzione R che normalizza una colonna di un dataframe tra 0 e 1.")</code></pre>
+
+    <h2>Vantaggi e Limiti</h2>
+    <p><strong>Vantaggi:</strong></p>
+    <ul>
+        <li>Risposte quasi istantanee</li>
+        <li>Adatto a flussi di lavoro intensivi</li>
+        <li>Buona privacy</li>
+    </ul>
+    <p><strong>Limiti:</strong></p>
+    <ul>
+        <li>Richiede API Key e account esterno</li>
+        <li>Modelli specifici di Groq</li>
+    </ul>
+
+    <h1>gander</h1>
+    
+    <h2>Cos'è gander?</h2>
+    <ul>
+        <li>Add-in open source sviluppato da Simon Couch (Posit)</li>
+        <li>Chat AI direttamente in RStudio</li>
+        <li>Caratteristica distintiva: accede al contesto dell'ambiente R</li>
+    </ul>
+
+    <h2>Funzionalità principali</h2>
+    <ul>
+        <li>Chat AI contestuale con informazioni su oggetti, dati e codice attivi</li>
+        <li>Integrazione con modelli OpenAI, Anthropic, Ollama (tramite ellmer)</li>
+        <li>Risposte personalizzate basate su stile e contenuto del progetto</li>
+        <li>Add-in richiamabile da tastiera</li>
+    </ul>
+
+    <h2>Installazione</h2>
+    <pre><code># Installa ellmer (backend per modelli AI)
+install.packages("ellmer")
+
+# Installa gander
+install.packages("gander")</code></pre>
+    <p>Configura API Key per OpenAI, Anthropic o Ollama<br>
+    Avvia da RStudio (Addins → gander)</p>
+
+    <h2>Come funziona</h2>
+    <ol>
+        <li>Seleziona codice o posizionati dove vuoi assistenza</li>
+        <li>Attiva l'add-in e scrivi la richiesta</li>
+        <li>gander invia automaticamente il contesto al modello AI</li>
+        <li>Ricevi risposta dettagliata e contestuale</li>
+    </ol>
+
+    <h2>Esempio pratico</h2>
+    <p>Con un dataframe <code>df</code> nell'ambiente, chiedi:</p>
+    <p>"Mostrami un esempio di visualizzazione dei dati di df"</p>
+    <p>gander capirà la struttura e proporrà un esempio coerente.</p>
+
+    <h2>Vantaggi e Limiti</h2>
+    <p><strong>Vantaggi:</strong></p>
+    <ul>
+        <li>Risposte pertinenti e personalizzate</li>
+        <li>Nessun copia/incolla di codice o dati</li>
+        <li>Perfetto per analisi, debugging, tutoring</li>
+    </ul>
+    <p><strong>Limiti:</strong></p>
+    <ul>
+        <li>Ancora in fase iniziale (alcuni bug)</li>
+        <li>Richiede configurazione API Key</li>
+    </ul>
+
+    <h1>Confronto tra gli strumenti</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Caratteristica</th>
+                <th>GitHub Copilot</th>
+                <th>groqR</th>
+                <th>gander</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Tipo</strong></td>
+                <td>Completamento AI</td>
+                <td>Chat e funzioni AI</td>
+                <td>Chat contestuale</td>
+            </tr>
+            <tr>
+                <td><strong>Modelli</strong></td>
+                <td>OpenAI (GPT-4)</td>
+                <td>Groq (Llama, Mixtral)</td>
+                <td>OpenAI, Anthropic, Ollama</td>
+            </tr>
+            <tr>
+                <td><strong>Integrazione</strong></td>
+                <td>Nativa RStudio</td>
+                <td>Add-in RStudio</td>
+                <td>Add-in RStudio</td>
+            </tr>
+            <tr>
+                <td><strong>Contesto ambiente</strong></td>
+                <td>Limitato</td>
+                <td>Limitato</td>
+                <td>Esteso</td>
+            </tr>
+            <tr>
+                <td><strong>Licenza</strong></td>
+                <td>Abbonamento</td>
+                <td>Piano gratuito/Pro</td>
+                <td>Open source</td>
+            </tr>
+            <tr>
+                <td><strong>Velocità</strong></td>
+                <td>Alta</td>
+                <td>Molto alta</td>
+                <td>Alta</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>Conclusioni e Raccomandazioni</h1>
+    <ul>
+        <li><strong>GitHub Copilot</strong>: ideale per suggerimenti rapidi e progetti multi-linguaggio</li>
+        <li><strong>groqR</strong>: ottimo per chi cerca velocità e assistenza AI versatile</li>
+        <li><strong>groqR</strong>: ideale per traduzione e debug veloce</li>
+        <li><strong>gander</strong>: perfetto per chi lavora con dati e oggetti in R</li>
+    </ul>
+    <p><strong>Consiglio pratico</strong>: Provare tutti e tre gli strumenti per scegliere il più adatto al proprio flusso di lavoro</p>
+
+    <h1>Risorse e Approfondimenti</h1>
+    <ul>
+        <li><a href="https://docs.posit.co/ide/user/ide/guide/coding/copilot.html" class="resource-link">Guida Copilot per RStudio</a></li>
+        <li><a href="https://github.com/groq/groqR" class="resource-link">groqR su GitHub</a></li>
+        <li><a href="https://posit.co/blog/introducing-gander/" class="resource-link">gander: blog ufficiale</a></li>
+        <li><a href="https://github.com/simonpcouch/ellmer" class="resource-link">ellmer: backend per gander</a></li>
+        <li><a href="https://rstudio.github.io/rstudioaddins/" class="resource-link">RStudio Addins</a></li>
+    </ul>
+
+    <h1>Grazie per l'attenzione!</h1>
+    <p>Domande?</p>
+</body>
+</html>
